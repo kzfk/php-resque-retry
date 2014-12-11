@@ -74,7 +74,7 @@ class Retry {
 		if ($retryDelay <= 0) {
 			Resque::enqueue($queue, $class, $arguments);
 		} else {
-			ResqueScheduler::enqueueAt($retryingAt, $queue, $class, $arguments);
+			ResqueScheduler\ResqueScheduler::enqueueAt($retryingAt, $queue, $class, $arguments);
 		}
 
 		$job->retrying = true;
